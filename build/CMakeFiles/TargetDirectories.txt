@@ -1,0 +1,11 @@
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/CMakeFiles/glad.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/CMakeFiles/imgui.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/CMakeFiles/ImGuiCalculator.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/CMakeFiles/edit_cache.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/CMakeFiles/rebuild_cache.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/CMakeFiles/edit_cache.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/CMakeFiles/rebuild_cache.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/src/CMakeFiles/glfw.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/src/CMakeFiles/update_mappings.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/src/CMakeFiles/edit_cache.dir
+C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/src/CMakeFiles/rebuild_cache.dir
