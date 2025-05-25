@@ -3,6 +3,7 @@
 #include "imgui_impl_opengl3.h"
 #include<GLFW/glfw3.h>
 #include <iostream>
+#include<vector>
 
 int main(){ 
     // Initializing glfw 
@@ -54,24 +55,135 @@ int main(){
 
         static bool show_int_calc = false;
         static bool show_float_calc = false;
-
-        ImGui::Begin("SIMPLE CALCULATOR", &show_demo_window);
+        static bool shift_btn = false;
+        static bool alpha_btn = false;
+        static bool mode_btn = false;
+        static bool on_btn = false;
+        static bool display = false;
+        ImGui::Begin("SCIENTIFIC CALCULATOR", &show_demo_window);
 
         // Widgets 
-        ImGui::Text("Choose the type of operation");
-        ImGui::SameLine();
-
+        // ImGui::Text("Choose the type of operation");
+        // ImGui::SameLine();
+        if(display){
+            ImGui::BeginChild("Display",ImVec2(200,80),true);
+        // Operation for Mode button
+        
+        if(mode_btn){
         if (ImGui::Button("INTEGER")) {
-                show_int_calc = true;
+                // show_int_calc = true;
                 show_float_calc = false;
+                mode_btn=false;  
             }
          ImGui::SameLine();    
         
         if (ImGui::Button("FLOAT")) {
             show_int_calc = false;
-             show_float_calc = true;
-        }    
+            //  show_float_calc = true;
+             mode_btn=false;  
+        }  
+          
+        }
 
+
+            ImGui::EndChild();
+        }
+        if(ImGui::Button("SHIFT")){
+            shift_btn = true;
+            display= true;
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("ALPHA")){
+            alpha_btn = true;
+            display = true;
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("Mode")){
+            mode_btn = true;
+            display = true;
+            
+        }
+        // static std::vector<float> numbers(100,0.0f);
+
+        // for(int i = 0 ; i<numbers.size(); ++i){
+        //     ImGui::PushID(i);
+        //     // ImGui::
+        // }
+        ImGui::BeginChild("Number box", ImVec2(145,115),true);
+        if(ImGui::Button("7")){
+
+        }
+        ImGui::SameLine();
+         if(ImGui::Button("8")){
+
+        }
+        ImGui::SameLine();
+         if(ImGui::Button("9")){
+
+        }
+           ImGui::SameLine();
+           ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));        // Button background
+ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
+ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
+         if(ImGui::Button("DEL")){
+
+        }
+        ImGui::PopStyleColor(3);
+        ImGui::SameLine();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));        // Button background
+ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
+ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
+         if(ImGui::Button("AC")){
+
+        }
+        ImGui::PopStyleColor(3);
+         if(ImGui::Button("4")){
+
+        }
+           ImGui::SameLine();
+         if(ImGui::Button("5")){
+
+        }
+           ImGui::SameLine();
+         if(ImGui::Button("6")){
+
+        }
+           ImGui::SameLine();
+         if(ImGui::Button("*")){
+
+        }
+           ImGui::SameLine();
+         if(ImGui::Button("/")){
+
+        }
+         if(ImGui::Button("1")){
+
+        }
+           ImGui::SameLine();
+         if(ImGui::Button("2")){
+
+        }
+           ImGui::SameLine();
+        if(ImGui::Button("3")){
+
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("+")){
+
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("-")){
+
+        }
+        
+        if(ImGui::Button("0")){
+
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("CALC")){
+
+        }
+        ImGui::EndChild();
 
         if(show_int_calc){
             // ImGui::SliderInt("Integer slide 1", &int_val1, -1000,1000);
@@ -92,7 +204,7 @@ int main(){
             if(ImGui::Button("MULTIPLY"))
             {
                 result1 = int_val1 * int_val2;
-                operation2 = "Multiplication";
+                operation1 = "Multiplication";
                 
             }
             ImGui::SameLine();
