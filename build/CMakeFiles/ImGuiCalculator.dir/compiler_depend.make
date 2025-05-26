@@ -43,6 +43,7 @@ CMakeFiles/ImGuiCalculator.dir/main.cpp.obj: C:/Users/ACER/OneDrive/Desktop/calc
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/deque.tcc \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
@@ -67,16 +68,19 @@ CMakeFiles/ImGuiCalculator.dir/main.cpp.obj: C:/Users/ACER/OneDrive/Desktop/calc
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_deque.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_stack.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf.tcc \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf_iterator.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
@@ -88,6 +92,7 @@ CMakeFiles/ImGuiCalculator.dir/main.cpp.obj: C:/Users/ACER/OneDrive/Desktop/calc
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwctype \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/deque \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
@@ -113,6 +118,7 @@ CMakeFiles/ImGuiCalculator.dir/main.cpp.obj: C:/Users/ACER/OneDrive/Desktop/calc
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stack \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/streambuf \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
@@ -157,6 +163,10 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h:
 
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/deque.tcc:
+
 C:/MinGW/include/direct.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h:
@@ -166,8 +176,6 @@ C:/MinGW/include/wctype.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h:
 
 C:/MinGW/include/errno.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h:
 
 C:/MinGW/include/float.h:
 
@@ -271,6 +279,10 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h:
 
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_deque.h:
+
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h:
@@ -278,6 +290,8 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_stack.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h:
 
@@ -292,6 +306,8 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf.tcc:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf_iterator.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype:
 
@@ -313,7 +329,7 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwctype:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception:
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/deque:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/istream:
 
@@ -350,6 +366,8 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stack:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept:
 

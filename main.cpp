@@ -3,8 +3,10 @@
 #include "imgui_impl_opengl3.h"
 #include<GLFW/glfw3.h>
 #include <iostream>
+#include<stack>
 #include<vector>
-
+#include<string>
+std::string expression = "";
 int main(){ 
     // Initializing glfw 
     if ( !glfwInit()) {
@@ -60,6 +62,12 @@ int main(){
         static bool mode_btn = false;
         static bool on_btn = false;
         static bool display = false;
+        static std:: stack<std::string> numbers;
+        std::string disptext = " ";
+        std::stack <std::string> temp = numbers;
+        std::vector <std::string> reversedInput ;   
+        static bool dispnum = false;
+       
         ImGui::Begin("SCIENTIFIC CALCULATOR", &show_demo_window);
 
         // Widgets 
@@ -84,7 +92,15 @@ int main(){
         }  
           
         }
+        
+         if(dispnum)   {
+            ImGui::Text("%s",expression.c_str());
+            
 
+           
+            
+         }
+           
 
             ImGui::EndChild();
         }
@@ -101,7 +117,7 @@ int main(){
         if(ImGui::Button("Mode")){
             mode_btn = true;
             display = true;
-            
+ 
         }
         // static std::vector<float> numbers(100,0.0f);
 
@@ -109,16 +125,25 @@ int main(){
         //     ImGui::PushID(i);
         //     // ImGui::
         // }
+       
         ImGui::BeginChild("Number box", ImVec2(145,115),true);
         if(ImGui::Button("7")){
+            expression += "7";
+            display= true;
+            dispnum = true;
 
         }
         ImGui::SameLine();
          if(ImGui::Button("8")){
-
+            expression += "8";
+            display= true;
+            dispnum = true;
         }
         ImGui::SameLine();
          if(ImGui::Button("9")){
+             expression += "9";
+             display = true;
+             dispnum = true;
 
         }
            ImGui::SameLine();
@@ -138,45 +163,75 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
         }
         ImGui::PopStyleColor(3);
          if(ImGui::Button("4")){
+             expression += "4";
+            display= true;
+             dispnum = true;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("5")){
+            expression += "5";
+            display= true;
+             dispnum = true;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("6")){
+           expression += "6";
+            display= true;
+             dispnum = true;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("*")){
+            expression += "*";
+            display= true;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("/")){
+            expression += "/";
+            display= true;
 
         }
          if(ImGui::Button("1")){
 
+           expression += "1";
+            display= true;
+             dispnum = true;
         }
            ImGui::SameLine();
          if(ImGui::Button("2")){
+            expression += "2";
+            display= true;
+             dispnum = true;
 
         }
            ImGui::SameLine();
         if(ImGui::Button("3")){
+           expression += "3";
+            display= true;
+             dispnum = true;
 
         }
         ImGui::SameLine();
         if(ImGui::Button("+")){
+            expression += "+";
+            display= true;
+            
 
         }
         ImGui::SameLine();
         if(ImGui::Button("-")){
+            expression += "-";
+            display= true;
 
         }
         
         if(ImGui::Button("0")){
+            expression += "0";
+            display= true;
+             dispnum = true;
 
         }
         ImGui::SameLine();
