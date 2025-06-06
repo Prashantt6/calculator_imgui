@@ -372,6 +372,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ImGuiCalculator.dir\build.make CMakeFiles/ImGuiCalculator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+operation.obj: operation.cpp.obj
+.PHONY : operation.obj
+
+# target to build an object file
+operation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ImGuiCalculator.dir\build.make CMakeFiles/ImGuiCalculator.dir/operation.cpp.obj
+.PHONY : operation.cpp.obj
+
+operation.i: operation.cpp.i
+.PHONY : operation.i
+
+# target to preprocess a source file
+operation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ImGuiCalculator.dir\build.make CMakeFiles/ImGuiCalculator.dir/operation.cpp.i
+.PHONY : operation.cpp.i
+
+operation.s: operation.cpp.s
+.PHONY : operation.s
+
+# target to generate assembly for a file
+operation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ImGuiCalculator.dir\build.make CMakeFiles/ImGuiCalculator.dir/operation.cpp.s
+.PHONY : operation.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -409,6 +433,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... operation.obj
+	@echo ... operation.i
+	@echo ... operation.s
 .PHONY : help
 
 

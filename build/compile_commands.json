@@ -48,6 +48,12 @@
   "output": "CMakeFiles/ImGuiCalculator.dir/main.cpp.obj"
 },
 {
+  "directory": "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/ImGuiCalculator.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\ImGuiCalculator.dir\\operation.cpp.obj -c C:\\Users\\ACER\\OneDrive\\Desktop\\calculator_imgui\\operation.cpp",
+  "file": "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/operation.cpp",
+  "output": "CMakeFiles/ImGuiCalculator.dir/operation.cpp.obj"
+},
+{
   "directory": "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/build/libs/glfw/src",
   "command": "C:\\MinGW\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c C:\\Users\\ACER\\OneDrive\\Desktop\\calculator_imgui\\libs\\glfw\\src\\context.c",
   "file": "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/libs/glfw/src/context.c",

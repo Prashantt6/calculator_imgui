@@ -34,7 +34,8 @@ target_include_directories(imgui PUBLIC
 )
 
 # Main executable
-add_executable(ImGuiCalculator main.cpp)
+add_executable(ImGuiCalculator main.cpp operation.cpp)
+
 
 # Include directories for the main target
 target_include_directories(ImGuiCalculator PRIVATE

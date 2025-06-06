@@ -1,3 +1,4 @@
+#include "operation.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -7,6 +8,8 @@
 #include<vector>
 #include<string>
 std::string expression = "";
+std::string result = "";
+double evaluate(const std::string& expression);
 int main(){ 
     // Initializing glfw 
     if ( !glfwInit()) {
@@ -62,12 +65,13 @@ int main(){
         static bool mode_btn = false;
         static bool on_btn = false;
         static bool display = false;
-        static std:: stack<std::string> numbers;
-        std::string disptext = " ";
-        std::stack <std::string> temp = numbers;
-        std::vector <std::string> reversedInput ;   
+    
+        // static std:: stack<std::string> numbers;
+        // std::string disptext = " ";
+        // std::stack <std::string> temp = numbers;
+        // std::vector <std::string> reversedInput ;   
         static bool dispnum = false;
-       
+        static bool calc=false ;       
         ImGui::Begin("SCIENTIFIC CALCULATOR", &show_demo_window);
 
         // Widgets 
@@ -94,13 +98,24 @@ int main(){
         }
         
          if(dispnum)   {
+           
             ImGui::Text("%s",expression.c_str());
             
 
            
             
          }
-           
+         if(calc){
+            dispnum = false;
+              try {
+       result = std::to_string(evaluate(expression));
+
+    } catch (const std::exception& e) {
+        result = "Error: " + std::string(e.what());
+    }
+        ImGui::Text("Result: %s", result.c_str());
+     
+         }
 
             ImGui::EndChild();
         }
@@ -131,6 +146,7 @@ int main(){
             expression += "7";
             display= true;
             dispnum = true;
+            calc = false;
 
         }
         ImGui::SameLine();
@@ -138,27 +154,38 @@ int main(){
             expression += "8";
             display= true;
             dispnum = true;
+            calc = false;
         }
         ImGui::SameLine();
          if(ImGui::Button("9")){
              expression += "9";
              display = true;
              dispnum = true;
+             calc = false;
 
         }
            ImGui::SameLine();
            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));        // Button background
-ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
-ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
          if(ImGui::Button("DEL")){
-
+               if (!expression.empty()) {
+                    expression.pop_back();
+                    }
+                display=true;
+                dispnum=true;
+                calc = false;
         }
-        ImGui::PopStyleColor(3);
+        ImGui::PopStyleColor(3);    
         ImGui::SameLine();
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));        // Button background
-ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
-ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.3f, 0.7f, 1.0f, 1.0f)); // Hover color
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));  
          if(ImGui::Button("AC")){
+            expression = "";
+            display= true;
+            dispnum=true;
+            calc = false;
 
         }
         ImGui::PopStyleColor(3);
@@ -166,6 +193,7 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
              expression += "4";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
            ImGui::SameLine();
@@ -173,6 +201,7 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
             expression += "5";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
            ImGui::SameLine();
@@ -180,18 +209,21 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
            expression += "6";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("*")){
             expression += "*";
             display= true;
+             calc = false;
 
         }
            ImGui::SameLine();
          if(ImGui::Button("/")){
             expression += "/";
             display= true;
+             calc = false;
 
         }
          if(ImGui::Button("1")){
@@ -199,12 +231,14 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
            expression += "1";
             display= true;
              dispnum = true;
+              calc = false;
         }
            ImGui::SameLine();
          if(ImGui::Button("2")){
             expression += "2";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
            ImGui::SameLine();
@@ -212,12 +246,14 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
            expression += "3";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
         ImGui::SameLine();
         if(ImGui::Button("+")){
             expression += "+";
             display= true;
+             calc = false;
             
 
         }
@@ -225,6 +261,7 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
         if(ImGui::Button("-")){
             expression += "-";
             display= true;
+             calc = false;
 
         }
         
@@ -232,101 +269,105 @@ ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.1f, 0.5f, 0.8f, 1.0f));
             expression += "0";
             display= true;
              dispnum = true;
+              calc = false;
 
         }
         ImGui::SameLine();
         if(ImGui::Button("CALC")){
-
-        }
-        ImGui::EndChild();
-
-        if(show_int_calc){
-            // ImGui::SliderInt("Integer slide 1", &int_val1, -1000,1000);
-            // ImGui::SliderInt("Integer slide 2", &int_val2, -1000, 1000);
-            ImGui::InputInt("Integer value 1", &int_val1);
-            ImGui::InputInt("Integer value", &int_val2);
-            if(ImGui::Button("ADD")){
-                result1 = int_val1 + int_val2;
-                operation1 = " Addition";
-            }
-            ImGui::SameLine();
-            if(ImGui::Button("SUBTRACT")){
-                result1 = int_val1 - int_val2;
-                operation1 = " Substraction";
-            
-            }
-            ImGui::SameLine();
-            if(ImGui::Button("MULTIPLY"))
-            {
-                result1 = int_val1 * int_val2;
-                operation1 = "Multiplication";
-                
-            }
-            ImGui::SameLine();
-            if(ImGui::Button("DIVIDE")){
-                if(int_val2!= 0){
-                    result1 = int_val1 / int_val2 ;
-                    
-                }
-                else {
-                    // ImGui::Text("Cannot be divided by zero");
-                    result1 = 0;
-                    error = "CANNOT BE DIVIDED BY ZERO";
-                }
-                operation1 = "Divison";
-                
-            }
-            if (error[0] != '\0') {
-                     ImGui::Text("%s", error);
-                }
-            ImGui::Text("You did %s", operation1);
-            ImGui::Text("Result : %d",result1);
-
-
+            calc= true;
+            display = true;
 
         }
         
-        if(show_float_calc){
-            // ImGui::SliderFloat("Float slider 1" , &float_val1 , -1000.0f , 1000.0f);
-            // ImGui::SliderFloat("Float slider 2" , &float_val2 , -1000.0f , 1000.0f);
+        ImGui::EndChild();
 
-            ImGui::InputFloat("Integer value 1", &float_val1);
-            ImGui::InputFloat("Integer value", &float_val2);
-            if(ImGui::Button("ADD"))
-            {
-                result2 = float_val1 + float_val2 ;
-                operation2 = "Addition";
-            }
-             ImGui::SameLine();
-             if(ImGui::Button("SUBTRACT"))
-            {
-                result2 = float_val1 - float_val2 ;
-                operation2 = "Subtraction";
-            }
-             ImGui::SameLine();
-             if(ImGui::Button("MULTIPLY"))
-            {
-                result2 = float_val1 * float_val2 ;
-                operation2 = "Multiplication";
-            }
-             ImGui::SameLine();
-            if(ImGui::Button("DIVIDE")){
-                if(float_val2!= 0){
-                    result2 = float_val1 / float_val2 ;
-                }
-                else {
+        // if(show_int_calc){
+        //     // ImGui::SliderInt("Integer slide 1", &int_val1, -1000,1000);
+        //     // ImGui::SliderInt("Integer slide 2", &int_val2, -1000, 1000);
+        //     ImGui::InputInt("Integer value 1", &int_val1);
+        //     ImGui::InputInt("Integer value", &int_val2);
+        //     if(ImGui::Button("ADD")){
+        //         result1 = int_val1 + int_val2;
+        //         operation1 = " Addition";
+        //     }
+        //     ImGui::SameLine();
+        //     if(ImGui::Button("SUBTRACT")){
+        //         result1 = int_val1 - int_val2;
+        //         operation1 = " Substraction";
+            
+        //     }
+        //     ImGui::SameLine();
+        //     if(ImGui::Button("MULTIPLY"))
+        //     {
+        //         result1 = int_val1 * int_val2;
+        //         operation1 = "Multiplication";
                 
-                    result2 = 0;
-                    error = "CANNOT BE DIVIDED BY ZERO";
-                }
-                operation2 = "Divison";
-            }
-             if (error[0] != '\0') {
-                     ImGui::Text("%s", error);
-                }
-            ImGui::Text("You did %s", operation2);
-            ImGui::Text("Result : %.3f",result2);
-        }
+        //     }
+        //     ImGui::SameLine();
+        //     if(ImGui::Button("DIVIDE")){
+        //         if(int_val2!= 0){
+        //             result1 = int_val1 / int_val2 ;
+                    
+        //         }
+        //         else {
+        //             // ImGui::Text("Cannot be divided by zero");
+        //             result1 = 0;
+        //             error = "CANNOT BE DIVIDED BY ZERO";
+        //         }
+        //         operation1 = "Divison";
+                
+        //     }
+        //     if (error[0] != '\0') {
+        //              ImGui::Text("%s", error);
+        //         }
+        //     ImGui::Text("You did %s", operation1);
+        //     ImGui::Text("Result : %d",result1);
+
+
+
+        // }
+        
+        // // if(show_float_calc){
+        // //     // ImGui::SliderFloat("Float slider 1" , &float_val1 , -1000.0f , 1000.0f);
+        // //     // ImGui::SliderFloat("Float slider 2" , &float_val2 , -1000.0f , 1000.0f);
+
+        // //     ImGui::InputFloat("Integer value 1", &float_val1);
+        // //     ImGui::InputFloat("Integer value", &float_val2);
+        // //     if(ImGui::Button("ADD"))
+        // //     {
+        // //         result2 = float_val1 + float_val2 ;
+        // //         operation2 = "Addition";
+        // //     }
+        // //      ImGui::SameLine();
+        // //      if(ImGui::Button("SUBTRACT"))
+        // //     {
+        // //         result2 = float_val1 - float_val2 ;
+        // //         operation2 = "Subtraction";
+        // //     }
+        // //      ImGui::SameLine();
+        // //      if(ImGui::Button("MULTIPLY"))
+        // //     {
+        // //         result2 = float_val1 * float_val2 ;
+        // //         operation2 = "Multiplication";
+        // //     }
+        // //      ImGui::SameLine();
+        // //     if(ImGui::Button("DIVIDE")){
+        // //         if(float_val2!= 0){
+        // //             result2 = float_val1 / float_val2 ;
+        // //         }
+        // //         else {
+                
+        // //             result2 = 0;
+        // //             error = "CANNOT BE DIVIDED BY ZERO";
+        // //         }
+        // //         operation2 = "Divison";
+        // //     }
+        // //      if (error[0] != '\0') {
+        // //              ImGui::Text("%s", error);
+        // //         }
+        // //     ImGui::Text("You did %s", operation2);
+        // //     ImGui::Text("Result : %.3f",result2);
+        // // }
            ImGui::End();
            
         //    render

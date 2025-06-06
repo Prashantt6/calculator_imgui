@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/main.cpp" "CMakeFiles/ImGuiCalculator.dir/main.cpp.obj" "gcc" "CMakeFiles/ImGuiCalculator.dir/main.cpp.obj.d"
+  "C:/Users/ACER/OneDrive/Desktop/calculator_imgui/operation.cpp" "CMakeFiles/ImGuiCalculator.dir/operation.cpp.obj" "gcc" "CMakeFiles/ImGuiCalculator.dir/operation.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
